@@ -39,14 +39,14 @@
   <a href="#" class="back-to-top"><i class="icofont-simple-up"></i></a>
 
   <!-- Vendor JS Files -->
-  <script src="{{ asset('Appland/assets/vendor/jquery/jquery.min.js') }}"></script>
-  <script src="{{ asset('Appland/assets/vendor/bootstrap/js/bootstrap.bundle.min.js') }}"></script>
-  <script src="{{ asset('Appland/assets/vendor/jquery.easing/jquery.easing.min.js') }}"></script>
-  <script src="{{ asset('Appland/assets/vendor/php-email-form/validate.js') }}"></script>
-  <script src="{{ asset('Appland/assets/vendor/owl.carousel/owl.carousel.min.js') }}"></script>
-  <script src="{{ asset('Appland/assets/vendor/venobox/venobox.min.js') }}"></script>
-  <script src="{{ asset('Appland/assets/vendor/aos/aos.js') }}"></script>
+  <script src="{{ secure_asset('Appland/assets/vendor/jquery/jquery.min.js') }}"></script>
+  <script src="{{ secure_asset('Appland/assets/vendor/bootstrap/js/bootstrap.bundle.min.js') }}"></script>
+  <script src="{{ secure_asset('Appland/assets/vendor/jquery.easing/jquery.easing.min.js') }}"></script>
+  <script src="{{ secure_asset('Appland/assets/vendor/php-email-form/validate.js') }}"></script>
+  <script src="{{ secure_asset('Appland/assets/vendor/owl.carousel/owl.carousel.min.js') }}"></script>
+  <script src="{{ secure_asset('Appland/assets/vendor/venobox/venobox.min.js') }}"></script>
+  <script src="{{ secure_asset('Appland/assets/vendor/aos/aos.js') }}"></script>
 
   <!-- Template Main JS File -->
-  <script type="text/javascript" src="{{ asset('Appland/assets/js/main.js') }}"></script>
+  <script type="text/javascript" src="{{ secure_asset('Appland/assets/js/main.js') }}"></script>
 </body>
