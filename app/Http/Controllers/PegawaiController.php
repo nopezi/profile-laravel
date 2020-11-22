@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Http\Response;
 use Illuminate\Support\Facades\DB;
 
 class PegawaiController extends Controller
@@ -91,4 +92,19 @@ class PegawaiController extends Controller
     	$hasil  = "nama : ".$nama." alamat : ".$alamat;
     	return $hasil;
     }
+
+    public function api()
+    {
+
+        $pegawai = DB::table('pegawai')->paginate(5);
+
+        return Response([
+            'status'  => true,
+            'message' => 'Berhasil dapat data',
+            'data'    => $pegawai
+        ], 200);
+        // return $pegawai;
+
+    }
+
 }
