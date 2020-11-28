@@ -15,6 +15,12 @@
       	<div class="container-fluid">
       		
       		<div class="row">
+
+      			<div class="col-lg-12">
+      				<button class="btn btn-sm btn-secondary" data-toggle="modal" data-target="#tambahModal">
+                  		<i class="material-icons">add</i>
+                  	</button>
+      			</div>
       			
       			<div class="col-lg-12 col-md-12">
       				
@@ -71,6 +77,9 @@
       	</div>
 
       </div>
+
+      <!-- modal tambah data -->
+      @include('admin::posting.tambah')
 
 	  @include('admin::layouts.footer')
 

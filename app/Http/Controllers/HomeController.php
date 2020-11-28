@@ -24,7 +24,7 @@ class HomeController extends Controller
      */
     public function index()
     {
-        return redirect('/admin');
-        // return '<center>Api Profile</center>';
+        return view('home/home');
+        // return redirect('/admin');
     }
 }

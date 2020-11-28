@@ -13,7 +13,13 @@ use Illuminate\Http\Request;
 |
 */
 
-Route::get('/pegawai', 'PegawaiController@api');
+Route::middleware('auth:api')->group(function () {
+
+	Route::get('/pegawai', 'Api\PegawaiApi@index');
+	Route::get('/posting', 'Api\PostingApi@index');
+
+});
+
 Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });

@@ -93,18 +93,4 @@ class PegawaiController extends Controller
     	return $hasil;
     }
 
-    public function api()
-    {
-
-        $pegawai = DB::table('pegawai')->paginate(5);
-
-        return Response([
-            'status'  => true,
-            'message' => 'Berhasil dapat data',
-            'data'    => $pegawai
-        ], 200);
-        // return $pegawai;
-
-    }
-
 }

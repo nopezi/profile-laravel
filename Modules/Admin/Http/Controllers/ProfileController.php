@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use Illuminate\Http\Response;
 use Illuminate\Routing\Controller;
 use Illuminate\Support\Facades\DB;
+use Modules\Admin\Entities\JenisPosting;
 
 class ProfileController extends Controller
 {
@@ -15,9 +16,28 @@ class ProfileController extends Controller
      */
     public function index()
     {
-        $data_profile = DB::table('profil')->first();
+        $data['id_menu']    = null;
+        $data['jenis_menu'] = JenisPosting::all();
+        $data['data']       = JenisPosting::all();
+        $cek_profil         = DB::table('profil')->first();
 
-        return view('admin::profile/index', ['profile' => $data_profile]);
+        if (empty($cek_profil)) {
+            $profil = (object)[
+                'id'           => null,
+                'nama_lengkap' => null,
+                'tempat_lahir' => null,
+                'tanggal_lahir'=> null,
+                'deskripsi'    => null,
+                'foto'         => null,
+            ];
+
+            $data['profile'] = $profil;
+        } else {
+            $data['profile'] = $cek_profil;
+        }
+
+        return view('admin::profile/index', $data);
+
     }
 
     /**
@@ -64,18 +84,35 @@ class ProfileController extends Controller
     public function update(Request $request)
     {
         
-        $data = [
-            'nama_lengkap' => $request->nama_lengkap,
-            'tempat_lahir' => $request->tempat_lahir,
-            'tanggal_lahir'=> $request->tgl_lahir,
-            'deskripsi'    => $request->deskripsi
-        ];
+        if (!empty($request->id)) {
+            
+            $data = [
+                'nama_lengkap' => $request->nama_lengkap,
+                'tempat_lahir' => $request->tempat_lahir,
+                'tanggal_lahir'=> $request->tgl_lahir,
+                'deskripsi'    => $request->deskripsi
+            ];
 
-        $hasil_update = DB::table('profil')
-                            ->where('id', $request->id)
-                            ->update($data);
+            $hasil_update = DB::table('profil')
+                                ->where('id', $request->id)
+                                ->update($data);
 
-        $request->session()->flash('berhasil', true);
+            $request->session()->flash('berhasil', true);
+
+        } else {
+
+            $data = [
+                'nama_lengkap' => $request->nama_lengkap,
+                'tempat_lahir' => $request->tempat_lahir,
+                'tanggal_lahir'=> $request->tgl_lahir,
+                'deskripsi'    => $request->deskripsi
+            ];
+
+            $hasil_update = DB::table('profil')->insert($data);
+
+            $request->session()->flash('berhasil', true);
+
+        }
         
         return redirect('/admin/profile');
 

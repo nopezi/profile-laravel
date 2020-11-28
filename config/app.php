@@ -181,6 +181,7 @@ return [
         Modules\Tes\Providers\RouteServiceProvider::class,
         Modules\Admin\Providers\AdminServiceProvider::class,
         Barryvdh\Debugbar\ServiceProvider::class,
+        Spatie\Fractal\FractalServiceProvider::class,
 
     ],
 
