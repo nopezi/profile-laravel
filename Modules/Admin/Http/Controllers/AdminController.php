@@ -5,6 +5,7 @@ namespace Modules\Admin\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
 use Illuminate\Routing\Controller;
+use Modules\Admin\Entities\JenisPosting;
 
 class AdminController extends Controller
 {
@@ -19,7 +20,10 @@ class AdminController extends Controller
     
     public function index()
     {
-        return view('admin::index');
+        $data['id_menu']    = null;
+        $data['jenis_menu'] = JenisPosting::all();
+        $data['data']       = JenisPosting::all();
+        return view('admin::index', $data);
     }
 
     /**
