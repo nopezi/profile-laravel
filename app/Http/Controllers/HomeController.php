@@ -24,11 +24,6 @@ class HomeController extends Controller
      */
     public function index()
     {
-        // $url_pecah = explode('//', url('/'));
-        // echo $url_pecah[0];
-        // echo secure_asset('');
-        // echo url('/Appland/assets/vendor/bootstrap/css/bootstrap.min.css');
-        // return view('auth/login');
         return redirect('/admin');
         // return '<center>Api Profile</center>';
     }
