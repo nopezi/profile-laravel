@@ -61,6 +61,53 @@
 			                    </div>
 
 			                    <div class="row">
+
+			                      <div class="col-md-6">
+				                    <div class="form-group">
+			                          <label class="bmd-label-floating">Agama</label>
+			                          <input type="text" name="agama" value="{{ $profile->agama }}" class="form-control" required="required">
+			                        </div>
+			                      </div>
+
+			                      <div class="col-md-6">
+			                        <div class="form-group">
+			                          <label class="bmd-label-floating">Email</label>
+			                          <input type="email" name="email" value="{{ $profile->email }}" class="form-control" required="required">
+			                        </div>
+			                      </div>
+
+			                    </div>
+
+			                    <div class="row">
+
+			                      <div class="col-md-6">
+				                    <div class="form-group">
+			                          <label class="bmd-label-floating">Nomor HP</label>
+			                          <input type="number" name="no_hp" value="{{ $profile->no_hp }}" class="form-control" required="required">
+			                        </div>
+			                      </div>
+
+			                      <div class="col-md-6">
+			                        <div class="form-group">
+			                          <label class="bmd-label-floating">Hobi</label>
+			                          <input type="text" name="hobi" value="{{ $profile->hobi }}" class="form-control" required="required">
+			                        </div>
+			                      </div>
+
+			                    </div>
+
+			                    <div class="row">
+			                      <div class="col-md-12">
+			                        <div class="form-group">
+			                          <div class="form-group">
+			                            <label class="bmd-label-floating">Alamat</label>
+			                            <textarea class="form-control" name="alamat" rows="2" required="required">{{ $profile->alamat }}</textarea>
+			                          </div>
+			                        </div>
+			                      </div>
+			                    </div>
+
+			                    <div class="row">
 			                      <div class="col-md-12">
 			                        <div class="form-group">
 			                          <div class="form-group">

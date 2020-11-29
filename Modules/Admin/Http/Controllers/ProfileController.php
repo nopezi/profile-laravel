@@ -27,6 +27,11 @@ class ProfileController extends Controller
                 'nama_lengkap' => null,
                 'tempat_lahir' => null,
                 'tanggal_lahir'=> null,
+                'no_hp'        => null,
+                'email'        => null,
+                'agama'        => null,
+                'alamat'       => null,
+                'hobi'         => null,
                 'deskripsi'    => null,
                 'foto'         => null,
             ];
@@ -90,6 +95,11 @@ class ProfileController extends Controller
                 'nama_lengkap' => $request->nama_lengkap,
                 'tempat_lahir' => $request->tempat_lahir,
                 'tanggal_lahir'=> $request->tgl_lahir,
+                'agama'        => $request->agama,
+                'email'        => $request->email,
+                'no_hp'        => $request->no_hp,
+                'hobi'         => $request->hobi,
+                'alamat'       => $request->alamat,
                 'deskripsi'    => $request->deskripsi
             ];
 
@@ -105,6 +115,11 @@ class ProfileController extends Controller
                 'nama_lengkap' => $request->nama_lengkap,
                 'tempat_lahir' => $request->tempat_lahir,
                 'tanggal_lahir'=> $request->tgl_lahir,
+                'agama'        => $request->agama,
+                'email'        => $request->email,
+                'no_hp'        => $request->no_hp,
+                'hobi'         => $request->hobi,
+                'alamat'       => $request->alamat,
                 'deskripsi'    => $request->deskripsi
             ];
 
