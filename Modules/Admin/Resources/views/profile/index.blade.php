@@ -19,11 +19,11 @@
       				<div class="card card-profile">
 		                <div class="card-avatar">
 		                  <a data-toggle="modal" data-target="#contohModal">
-		                  	<!-- @if (!empty($profile->foto))
+		                  	@if (!empty($profile->foto))
 		                  	<img class="img" src="{{ asset('gambar') }}/{{ $profile->foto }}" />
 		                  	@else
 		                    <img class="img" src="{{ asset('material-dashboard-master/assets/img/faces/marc.jpg') }}" />
-		                    @endif -->
+		                    @endif
 		                  </a>
 		                </div>
 
@@ -33,8 +33,6 @@
       					</div> -->
 
       					<div class="card-body">
-
-      						<?php// print_r($profile); ?>
       						
       						<form action="/admin/profile/update" method="POST">
       							{{ csrf_field() }}
