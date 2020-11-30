@@ -17,6 +17,7 @@ Route::middleware('auth:api')->group(function () {
 
 	Route::get('/pegawai', 'Api\PegawaiApi@index');
 	Route::get('/posting', 'Api\PostingApi@index');
+	Route::get('/profil', 'Api\ProfilApi@index');
 
 });
 
