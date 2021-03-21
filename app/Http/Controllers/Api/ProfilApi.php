@@ -21,7 +21,8 @@ class ProfilApi extends Controller
 	{
 
 		$data = DB::table('profil')->first();
-		$data->url_gambar = 'http://shielded-beyond-23529.herokuapp.com/gambar/'.$data->foto; 
+		// $data->url_gambar = 'http://shielded-beyond-23529.herokuapp.com/gambar/'.$data->foto;
+		$data->url_gambar = asset('gambar').'/'.$data->foto; 
 
 		return Response([
             'status'  => true,

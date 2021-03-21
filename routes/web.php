@@ -25,6 +25,12 @@ Route::get('/login', function () {
 // });
 
 Route::get('dosen', 'DosenController@index');
+Route::get('terjemah', 'DosenController@terjemah');
+Route::get('bot/telegram', 'TelegramController@index');
+Route::post('bot/telegram/hook', 'TelegramController@hook');
+Route::get('bot/telegram/webhook', 'TelegramController@webhook');
+Route::get('bot/telegram/kirim_pesan', 'TelegramController@kirim_pesan');
+
 // Route::get('/pegawai/{nama}', 'PegawaiController@index');
 Route::get('/pegawai', 'PegawaiController@index');
 Route::get('/pegawai/tambah', 'PegawaiController@tambah');
@@ -53,6 +59,13 @@ Route::get('/blog/kontak', 'BlogController@kontak');
 // 		'login' => false
 // 	]
 // );
+
+# url api
+Route::middleware(['basicAuth'])->group(function (){
+	Route::get('api/pegawai', 'Api\PegawaiApi@index');
+	Route::get('api/posting', 'Api\PostingApi@index');
+	Route::get('api/profil', 'Api\ProfilApi@index');
+});
 
 // Route::get('/admin', 'HomeController@index')->middleware('auth');
 Route::get('/home', 'HomeController@index')->name('home');

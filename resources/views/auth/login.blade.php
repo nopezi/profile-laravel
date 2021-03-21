@@ -50,8 +50,8 @@
                             <a href="{{ route('password.request') }}" class="for">Forgot password...?</a>
                         </div>
                     </div>
-                    <div class="btnn">
-                        <button type="submit">Sign Up </button>
+                    <div class="btn">
+                        <button type="submit" class="btn btn-info">Login</button>
                     </div>
                 </form>
                 <div class="w3layouts_more-buttn">
