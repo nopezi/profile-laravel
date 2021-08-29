@@ -30,6 +30,8 @@ Route::middleware(['basicAuth'])->group(function (){
 	Route::post('/posting/edit', 'Api\PostingApi@edit');
 	Route::delete('/posting/hapus', 'Api\PostingApi@hapus');
 
+	Route::get('/jenis_posting', 'Api\JenisPostingApi@index');
+
 	Route::get('/profil', 'Api\ProfilApi@index');
 });
 
