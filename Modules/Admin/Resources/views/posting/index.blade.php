@@ -46,19 +46,19 @@
 		                      @if (!empty($posting))
 		                      	@foreach($posting as $no => $p)
 		                      	<tr>
-		                      		<td>{{++$no}}</td>
+		                      		<td>{{ ++$no }}</td>
 		                      		<td>
 		                      			<img src="https://mdbootstrap.com/img/Others/documentation/1.jpg" class="img-fluid" style="width: 50px; height: 50px" alt="Responsive image">
 		                      		</td>
-		                      		<td>{{$p->judul}}</td>
-		                      		<td>{{$p->isi}}</td>
+		                      		<td>{{ $p->judul }}</td>
+		                      		<td>{{ $p->isi }}</td>
 		                      		<td class="text-center">
-		                      			<a href="" class="btn btn-sm btn-warning btn-round">
-		                      				<i class="material-icons">edit</i>
-		                      			</a>
-		                      			<a href="" class="btn btn-sm btn-round btn-danger">
-		                      				<i class="material-icons">delete</i>
-		                      			</a>
+									    <button class="btn btn-sm btn-round btn-warning" data-toggle="modal" data-target="#editModal{{ $p->id }}">
+											<i class="material-icons">edit</i>
+										</button>
+										<button class="btn btn-sm btn-round btn-danger" data-toggle="modal" data-target="#hapusModal{{ $p->id }}">
+											<i class="material-icons">delete</i>
+										</button>
 		                      		</td>
 		                      	</tr>
 		                      	@endforeach
@@ -80,6 +80,8 @@
 
       <!-- modal tambah data -->
       @include('admin::posting.tambah')
+	  @include('admin::posting.edit')
+	  @include('admin::posting.hapus')
 
 	  @include('admin::layouts.footer')
 

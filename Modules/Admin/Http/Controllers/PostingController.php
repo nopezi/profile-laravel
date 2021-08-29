@@ -15,7 +15,7 @@ class PostingController extends Controller
      * Display a listing of the resource.
      * @return Response
      */
-    public function index($id)
+    public function index(Request  $request, $id)
     {
 
         $data['posting']    = Posting::where('id_kategori', $id)->get();
@@ -25,57 +25,45 @@ class PostingController extends Controller
 
         return view('admin::posting/index', $data);
     }
-
-    /**
-     * Show the form for creating a new resource.
-     * @return Response
-     */
-    public function create()
+    
+    public function tambah(Request $request, $id)
     {
-        return view('admin::create');
+        
+        Posting::insert([
+            'id_kategori' => $id,
+            'judul' => $request->judul,
+            'isi' => $request->isi,
+            'gambar' =>'',
+        ]);
+
+        $request->session()->flash('berhasil', 'Berhasil tambah posting');
+
+        return redirect('/admin/posting/'.$id);
+        
     }
 
-    /**
-     * Store a newly created resource in storage.
-     * @param  Request $request
-     * @return Response
-     */
-    public function store(Request $request)
+    public function edit(Request $request, $id)
     {
+        Posting::where('id', $request->id)
+                ->update([
+                    'judul' => $request->judul,
+                    'isi' => $request->isi,
+                    'updated_at' => date('Y-m-d H:i:s'),
+                ]);
+
+        $request->session()->flash('berhasil', 'Berhasil edit data');
+        return redirect('/admin/posting/'.$id);
     }
 
-    /**
-     * Show the specified resource.
-     * @return Response
-     */
-    public function show()
+    public function hapus(Request $request, $id)
     {
-        return view('admin::show');
+        
+        $hapus = Posting::find($request->id);
+        $hapus->delete();
+
+        $request->session()->flash('berhasil', 'Berhasil hapus data');
+        return redirect('/admin/posting/'.$id);
+
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     * @return Response
-     */
-    public function edit()
-    {
-        return view('admin::edit');
-    }
-
-    /**
-     * Update the specified resource in storage.
-     * @param  Request $request
-     * @return Response
-     */
-    public function update(Request $request)
-    {
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     * @return Response
-     */
-    public function destroy()
-    {
-    }
 }

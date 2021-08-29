@@ -1,4 +1,6 @@
 <?php
+use Illuminate\Support\Facades\Route;
+use Illuminate\Support\Facades\Auth;
 
 /*
 |--------------------------------------------------------------------------
@@ -59,13 +61,6 @@ Route::get('/blog/kontak', 'BlogController@kontak');
 // 		'login' => false
 // 	]
 // );
-
-# url api
-Route::middleware(['basicAuth'])->group(function (){
-	Route::get('api/pegawai', 'Api\PegawaiApi@index');
-	Route::get('api/posting', 'Api\PostingApi@index');
-	Route::get('api/profil', 'Api\ProfilApi@index');
-});
 
 // Route::get('/admin', 'HomeController@index')->middleware('auth');
 Route::get('/home', 'HomeController@index')->name('home');

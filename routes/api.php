@@ -1,7 +1,7 @@
 <?php
 
 use Illuminate\Http\Request;
-
+use Illuminate\Support\Facades\Route;
 /*
 |--------------------------------------------------------------------------
 | API Routes
@@ -13,12 +13,24 @@ use Illuminate\Http\Request;
 |
 */
 
-Route::middleware('auth:api')->group(function () {
+// Route::middleware('auth:api')->group(function () {
 
+// 	Route::get('/pegawai', 'Api\PegawaiApi@index');
+// 	Route::get('/posting', 'Api\PostingApi@index');
+// 	Route::get('/profil', 'Api\ProfilApi@index');
+
+// });
+
+# url api
+Route::middleware(['basicAuth'])->group(function (){
 	Route::get('/pegawai', 'Api\PegawaiApi@index');
-	Route::get('/posting', 'Api\PostingApi@index');
-	Route::get('/profil', 'Api\ProfilApi@index');
 
+	Route::get('/posting', 'Api\PostingApi@index');
+	Route::post('/posting/tambah', 'Api\PostingApi@tambah');
+	Route::post('/posting/edit', 'Api\PostingApi@edit');
+	Route::delete('/posting/hapus', 'Api\PostingApi@hapus');
+
+	Route::get('/profil', 'Api\ProfilApi@index');
 });
 
 Route::middleware('auth:api')->get('/user', function (Request $request) {

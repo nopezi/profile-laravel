@@ -317,7 +317,7 @@
 @if (Session::get('berhasil'))
   <script type="text/javascript">
 
-    var pesan = "Berhasil tambah data.";
+    var pesan = "{{ Session::get('berhasil') }}";
     notifikasi('success', pesan);
 
   </script>

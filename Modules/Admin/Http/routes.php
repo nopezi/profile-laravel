@@ -1,5 +1,7 @@
 <?php
 
+use Illuminate\Support\Facades\Route;
+
 Route::group(['middleware' => 'web', 'prefix' => 'admin', 'namespace' => 'Modules\Admin\Http\Controllers'], function()
 {
     Route::get('/', 'AdminController@index')->middleware('auth');
@@ -11,6 +13,9 @@ Route::group(['middleware' => 'web', 'prefix' => 'admin', 'namespace' => 'Module
 
     /* POSTING */
     Route::get('/posting/{id}', 'PostingController@index')->middleware('auth');
+    Route::post('/posting/tambah/{id}', 'PostingController@tambah')->middleware('auth');
+    Route::post('/posting/edit/{id}', 'PostingController@edit')->middleware('auth');
+    Route::post('/posting/hapus/{id}', 'PostingController@hapus')->middleware('auth');
 
     /* JENIS POSTING */
     Route::get('/jenis_posting/', 'JenispostingController@index')->middleware('auth');
