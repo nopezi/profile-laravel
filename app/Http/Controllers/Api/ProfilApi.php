@@ -32,4 +32,25 @@ class ProfilApi extends Controller
 
 	}
 
+	public function edit(Request $request)
+	{
+		$data_update = $request->input();
+
+		DB::table('profil')
+		  ->where('id', 1)
+		  ->update($data_update);
+
+		$data = DB::table('profil')
+				  ->where('id', 1)
+				  ->get()
+				  ->first();
+
+		return Response([
+            'status'  => true,
+            'message' => 'Berhasil edit data',
+            'data'    => $data
+        ], 200);
+
+	}
+
 }

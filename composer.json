@@ -11,6 +11,7 @@
         "fzaninotto/faker": "~1.4",
         "google/cloud-translate": "^1.9",
         "laravel/framework": "5.5.*",
+        "laravel/passport": "~4.0",
         "laravel/tinker": "~1.0",
         "longman/telegram-bot": "^0.64.0",
         "nwidart/laravel-modules": "^2.7",

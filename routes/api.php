@@ -33,6 +33,8 @@ Route::middleware(['basicAuth'])->group(function (){
 	Route::get('/jenis_posting', 'Api\JenisPostingApi@index');
 
 	Route::get('/profil', 'Api\ProfilApi@index');
+	Route::put('/profil/edit', 'Api\ProfilApi@edit');
+
 });
 
 Route::middleware('auth:api')->get('/user', function (Request $request) {
