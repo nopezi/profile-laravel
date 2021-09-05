@@ -34,11 +34,12 @@ class SkillApi extends Controller
 
     public function tambah(Request $request)
     {
-        
+
         $tambah = DB::table('skill')->insertGetId([
             'nama_skill' => $request->nama_skill,
             'persentasi' => $request->nilai,
-            'warna' => $request->warna
+            'warna' => $request->warna,
+            'created_at' => date('Y-m-d H:i:s'),
         ]);
 
         $hasil = DB::table('skill')->where('id', $tambah)->get()->first();
