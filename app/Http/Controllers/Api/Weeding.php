@@ -36,13 +36,13 @@ class Weeding extends Controller
 
     }
 
-    public function tambah_pesan(Request $parameter)
+    public function tambah_pesan(Request $request)
     {
         $hasil_id = DB::table('pesan_weeding')->insertGetId([
             'name' => $request->input('name'),
             'no_wa' => $request->input('no_wa'),
             'pesan' => $request->input('pesan'),
-        ])
+        ]);
 
         if (!empty($hasil_id)) {
             
@@ -67,6 +67,18 @@ class Weeding extends Controller
             }
 
         }
+    }
+
+    private function cek($id)
+    {
+        
+        $cek = DB::table('pesan_weeding')
+                 ->where('id', '=', $id)
+                 ->get()
+                 ->first();
+
+        return $cek;
+        
     }
 
 }
