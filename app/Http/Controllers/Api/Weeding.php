@@ -36,4 +36,37 @@ class Weeding extends Controller
 
     }
 
+    public function tambah_pesan(Request $parameter)
+    {
+        $hasil_id = DB::table('pesan_weeding')->insertGetId([
+            'name' => $request->input('name'),
+            'no_wa' => $request->input('no_wa'),
+            'pesan' => $request->input('pesan'),
+        ])
+
+        if (!empty($hasil_id)) {
+            
+            $cek = $this->cek($hasil_id);
+
+            if (!empty($cek)) {
+                return Response([
+                    'status' => true,
+                    'message' =>  'berhasil tambah data pesan',
+                    'data' => $cek,
+                ], 200);
+            }
+
+        } else {
+
+            if (!empty($cek)) {
+                return Response([
+                    'status' => false,
+                    'message' =>  'gagal insert id',
+                    'data' => null,
+                ], 200);
+            }
+
+        }
+    }
+
 }

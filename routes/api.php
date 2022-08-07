@@ -40,6 +40,7 @@ Route::middleware(['basicAuth'])->group(function (){
 	Route::put('/skill/edit', 'Api\SkillApi@edit');
 
 	Route::get('/pesan', 'Api\Weeding@pesan');
+	Route::post('/pesan/tambah', 'Api\Weeding@tambah_pesan');
 
 });
 
