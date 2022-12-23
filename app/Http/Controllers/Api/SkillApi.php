@@ -11,7 +11,7 @@ class SkillApi extends Controller
     public function index(Request $request)
     {
         
-        $data =  DB::table('skill')->get()->all();
+        $data =  DB::table('skill')->orderBy('id', 'desc')->get()->all();
 
         if (!empty($data)) {
             return Response([
