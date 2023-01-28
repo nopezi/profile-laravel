@@ -20,7 +20,10 @@ class PostingApi extends Controller
         if (empty($parameter->id_kategori)) {
            $posting = DB::table('posting')->paginate(50);
         } else {
-            $posting = DB::table('posting')->where('id_kategori', $parameter->id_kategori)->get();
+            $posting = DB::table('posting')
+                         ->where('id_kategori', $parameter->id_kategori)
+                         ->orderBy('id', 'desc')
+                         ->get();
         }
         
 

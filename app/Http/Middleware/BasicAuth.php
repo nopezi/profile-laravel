@@ -18,6 +18,7 @@ class BasicAuth
         $AUTH_USER = 'admin';
         $AUTH_PASS = 'admin';
         header('Cache-Control: no-cache, must-revalidate, max-age=0');
+        // header("Access-Control-Allow-Origin: http://localhost, http://nopezi.com, https://nopezi.com");
         $has_supplied_credentials = !(empty($_SERVER['PHP_AUTH_USER']) && empty($_SERVER['PHP_AUTH_PW']));
         $is_not_authenticated = (
             !$has_supplied_credentials ||
